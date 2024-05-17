@@ -12,6 +12,7 @@ export default defineConfig(({ command }) => {
       },
     };
   } else {
+    console.log("Production!")
     return {
       plugins: [react()],
       server: {
