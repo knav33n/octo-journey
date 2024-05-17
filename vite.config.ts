@@ -2,6 +2,7 @@ import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 
 export default defineConfig(({ command }) => {
+  console.log(command)
   if (command === "serve") {
     return {
       plugins: [react()],
@@ -12,7 +13,6 @@ export default defineConfig(({ command }) => {
       },
     };
   } else {
-    console.log("Production!")
     return {
       plugins: [react()],
       server: {
