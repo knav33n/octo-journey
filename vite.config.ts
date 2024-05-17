@@ -16,7 +16,7 @@ export default defineConfig(({ command }) => {
       plugins: [react()],
       server: {
         proxy: {
-          "/v1": "http://localhost:8800/api/",
+          "/v1": "http://3.77.150.166:8800/api/",
         },
       },
     };
