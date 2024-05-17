@@ -2,7 +2,6 @@ import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 
 export default defineConfig(({ command }) => {
-  console.log(command);
   if (command === "serve") {
     return {
       plugins: [react()],
@@ -15,10 +14,13 @@ export default defineConfig(({ command }) => {
   } else {
     return {
       plugins: [react()],
-      base: process.env.VITE_BASE_PATH,
       server: {
         proxy: {
-          "/v1": "http://3.77.150.166:8800/api/",
+          "/v1": {
+            target: "http://3.77.150.166:8800/api/",
+            changeOrigin: true,
+            secure: false,
+          },
         },
       },
     };
