@@ -7,7 +7,7 @@ import "./register.css"
 export const Register = () => {
     const [app, setApp] = useContext(AppContext)!
     const [success, setSuccess] = useState(false)
-    const [error, setError] = useState(null)
+    const [error, setError] = useState<string | null>(null)
     const usernameRef = useRef<HTMLInputElement>(null)
     const emailRef = useRef<HTMLInputElement>(null)
     const passwordRef = useRef<HTMLInputElement>(null)
@@ -25,7 +25,7 @@ export const Register = () => {
             setError(null)
             setSuccess(true)
         } catch (error) {
-            setError(error.message)
+            setError((error as Error).message)
             console.error(error)
         }
     }
