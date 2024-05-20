@@ -51,5 +51,6 @@
   "devDependencies": {
     "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
     "@types/mapbox-gl": "^3.1.0"
-  }
+  },
+  "proxy": "http://3.70.19.88:8800"
 }
