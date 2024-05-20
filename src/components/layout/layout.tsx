@@ -13,7 +13,7 @@ export const Layout = ({ children }: Props) => {
     const [app, setApp] = useState<App>({
         currentUser: null,
         showRegister: false,
-        showLogin: false
+        showLogin: false,
     })
 
     useEffect(() => {

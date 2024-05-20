@@ -1,8 +1,8 @@
 import { Cancel, Room } from "@mui/icons-material"
-import axios from "axios"
 import React, { useContext, useRef, useState } from "react"
 import { AppContext } from "../layout/layout"
 import "./register.css"
+import axios from "../../config/axios"
 
 export const Register = () => {
     const [app, setApp] = useContext(AppContext)!

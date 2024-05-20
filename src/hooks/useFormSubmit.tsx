@@ -1,5 +1,6 @@
-import axios from 'axios';
 import { useState } from 'react';
+import axios from '../config/axios';
+import { isAxiosError } from 'axios';
 
 type ChangeEvent = React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>;
 
@@ -26,7 +27,7 @@ function useFormSubmit<T, R>(url: string) {
             const response = await axios.post(url, formData);
             setResponse(response.data);
         } catch (error) {
-            if (axios.isAxiosError(error) && error?.response?.data) {
+            if (isAxiosError(error) && error?.response?.data) {
                 setError(error.response.data)
             } else if (error instanceof Error) {
                 setError(error.message);

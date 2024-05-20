@@ -1,7 +1,8 @@
-import axios from "axios"
+
 import { FormEvent, useContext, useRef, useState } from "react"
 import { Popup } from "react-map-gl"
 import { AppContext } from "../layout/layout"
+import axios from "../../config/axios"
 
 interface Props {
     newPin: NewPin,

@@ -1,12 +1,12 @@
 import { Star } from "@mui/icons-material";
 import RoomIcon from '@mui/icons-material/Room';
-import axios from "axios";
 import "mapbox-gl/dist/mapbox-gl.css";
 import { useContext, useEffect, useState } from "react";
 import { Map, Marker, Popup } from "react-map-gl";
 import { format } from "timeago.js";
 import { AppContext } from "../layout/layout";
 import { NewPin } from "../new-pin/new-pin";
+import axios from "../../config/axios";
 
 export const Home = () => {
     const appCtx = useContext(AppContext)
@@ -32,7 +32,7 @@ export const Home = () => {
     useEffect(() => {
         const getPins = async () => {
             try {
-                const { data } = await axios.get("/v1/pins")
+                const { data } = await axios.get(`/v1/pins`)
                 setPins(data)
             } catch (error) {
                 console.log(error)
@@ -52,7 +52,7 @@ export const Home = () => {
     return (
         <Map
             {...viewport}
-            mapboxAccessToken={import.meta.env.VITE_MAPBOX}
+            mapboxAccessToken={process.env.REACT_APP_MAPBOX}
             onMove={e => setViewport(e.viewState)}
             style={{ width: '100vw', height: '100vh' }}
             mapStyle="mapbox://styles/safak/cknndpyfq268f17p53nmpwira"
